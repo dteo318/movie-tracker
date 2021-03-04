@@ -1,0 +1,376 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watched</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/watched_list_1.css' %}" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <!-- User -->
+          <a href="#" class="brand-logo right">USERNAME</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">To Watch</a></li>
+            <li class="active"><a href="#">Watched</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Control Bar -->
+    <div class="container">
+      <div class="row ctrl-bar-spacing">
+        <!-- Add Movie to Watched List -->
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#add-movie"
+          >Add Movie</a
+        >
+
+        <!-- Modal Structure -->
+        <div id="add-movie" class="modal">
+          <div class="modal-content">
+            <h4>Select Movie</h4>
+            <p></p>
+            <p>Add a movie to watched movies list</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+              >Agree</a
+            >
+          </div>
+        </div>
+
+        <!-- Filter Options -->
+        <!-- Modal Trigger -->
+        <a
+          class="waves-effect waves-light btn modal-trigger right"
+          href="#filter-watched-list"
+          >Filter</a
+        >
+
+        <!-- Modal Structure -->
+        <div id="filter-watched-list" class="modal">
+          <div class="modal-content">
+            <h4>Filter</h4>
+            <p></p>
+            <p>Filter saved movies based on multiple options</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+              >Agree</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie Cards -->
+
+      <!-- Edit Saved Watched Movie Fields -->
+      <!-- Modal Structure -->
+      <div id="saved-movies">
+        <div id="edit-saved-movie" class="modal">
+          <div class="modal-content">
+            <h4>Edit Movie</h4>
+            <p></p>
+            <p>Edit a saved movie in the watched movies list</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+              >Agree</a
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card small hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  src="{% static 'images/marvel_infinity_war.jpg' %}"
+                />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">movie</i></span
+                >
+                <p>
+                  <a class="modal-trigger" href="#edit-saved-movie"
+                    >Edit Movie</a
+                  >
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"
+                  >Infinity War<i class="material-icons right">close</i></span
+                >
+                <p>
+                  Here is some more information about this product that is only
+                  revealed once clicked on.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let elems = document.querySelectorAll(".modal");
+        let instances = M.Modal.init(elems);
+      });
+    </script>
+  </body>
+</html>
