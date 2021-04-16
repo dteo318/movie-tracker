@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{% static 'css/watched_list_1.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/watched_list.css' %}" />
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -37,7 +37,10 @@
       <div class="row ctrl-bar-spacing">
         <!-- Add Movie to Watched List -->
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#add-movie"
+        <a
+          class="waves-effect waves-light btn modal-trigger"
+          id="add-movie-button"
+          href="#add-movie"
           >Add Movie</a
         >
 
@@ -48,9 +51,16 @@
             <p></p>
             <p>Add a movie to watched movies list</p>
           </div>
+          <!-- Search bar -->
+          <div class="add-movie-search">
+            <i class="material-icons">search</i>
+            <input type="text" id="search-bar" />
+          </div>
+          <!-- Results -->
+          <div id="search-results"></div>
           <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-              >Agree</a
+              >Add</a
             >
           </div>
         </div>

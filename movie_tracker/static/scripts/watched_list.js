@@ -1,5 +1,3 @@
-const watched_list = document.getElementById("watched-list-cards");
-
 function addCardReveal(card, movie_name, movie_description) {
   // Create card reveal elements
   const card_reveal_holder = document.createElement("div");
@@ -98,4 +96,122 @@ function populateWatchedList(watched_list_container) {
   }
 }
 
+function getMovieImage(movie_id, image) {
+  const image_base_url = "http://image.tmdb.org/t/p/";
+  const image_size = "original";
+  const query_string =
+    movie_database_api + `movie/${movie_id}/images?api_key=` + api_key;
+  fetch(query_string)
+    .then((response) => response.json())
+    .then((data) => {
+      try {
+        const image_url =
+          image_base_url + image_size + data.backdrops[0].file_path;
+        image.src = image_url;
+      } catch (err) {
+        console.log("Image not found");
+        image.src = "static/images/marvel_infinity_war.jpg";
+      }
+    });
+}
+
+function createSearchResultCard(
+  results_container,
+  result_title,
+  result_image,
+  result_overview,
+  result_id
+) {
+  // Creating card grid containers
+  const result_row = document.createElement("div");
+  result_row.className = "row";
+  const result_col = document.createElement("div");
+  result_col.className = "col s12";
+  //   Creating card container
+  const card = document.createElement("div");
+  card.className = "card";
+  //   Card image
+  const image_container = document.createElement("div");
+  image_container.className = "card-image";
+  //   Image
+  const image = document.createElement("img");
+  getMovieImage(result_id, image);
+  image_container.appendChild(image);
+  //   Card title
+  const card_title = document.createElement("span");
+  card_title.className = "card-title";
+  card_title.textContent = result_title;
+  image_container.appendChild(card_title);
+  //   Adding image container to card
+  card.appendChild(image_container);
+  //   Card Content
+  const content_container = document.createElement("div");
+  content_container.className = "card-content";
+  const content = document.createElement("p");
+  content.textContent = result_overview;
+  content_container.appendChild(content);
+  //   Adding content container to card
+  card.appendChild(content_container);
+  //   Adding add movie action
+  const card_action = document.createElement("div");
+  card_action.className = "card-action";
+  const action = document.createElement("a");
+  action.textContent = "Add movie to watched";
+  card_action.appendChild(action);
+  card.appendChild(card_action);
+  //   Adding card to container
+  result_col.appendChild(card);
+  result_row.appendChild(result_col);
+  //   Adding to result
+  results_container.appendChild(result_row);
+}
+
+function renderMovieCards(resultArr) {
+  const search_results_container = document.getElementById("search-results");
+  resultArr.forEach((resultObj) => {
+    createSearchResultCard(
+      search_results_container,
+      resultObj.title,
+      "static/images/marvel_infinity_war.jpg",
+      resultObj.overview,
+      resultObj.id
+    );
+  });
+}
+
+function searchMovie(movie_name) {
+  const query = movie_name.trim().replace(" ", "+");
+  const request_string =
+    movie_database_api + "search/movie?api_key=" + api_key + "&query=" + query;
+  console.log(request_string);
+  fetch(request_string)
+    .then((response) => response.json())
+    .then((data) => {
+      renderMovieCards(data.results);
+    });
+}
+
+const watched_list = document.getElementById("watched-list-cards");
+const api_key = "343bf88c8c21a39b03ed932f7cc2e015";
+const movie_database_api = "https://api.themoviedb.org/3/";
+
 populateWatchedList(watched_list);
+
+const add_watched_movie_search = document.getElementById("search-bar");
+const add_movie_button = document.getElementById("add-movie-button");
+
+// Focus on search bar when add movie clicked
+add_movie_button.onclick = function () {
+  add_watched_movie_search.value = "";
+  add_watched_movie_search.focus();
+};
+
+// To listen for movie searches
+add_watched_movie_search.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    const search_results_container = document.getElementById("search-results");
+    const query_terms = add_watched_movie_search.value;
+    search_results_container.innerHTML = "";
+    searchMovie(query_terms);
+  }
+});
